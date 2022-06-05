@@ -14,29 +14,18 @@ let password3 = document.getElementById('pass3')
 let password4 = document.getElementById('pass4')
 let passwordsArray = [password1, password2, password3, password4]
 
-// function randomCharacter() {
-//     for (let i = 0; i < chars.length; i++) {
-//         let randomChar = Math.floor(Math.random() * chars.length)
-//         return chars[randomChar]
-//     }
-// }
-
-
-function getMultipleRandom(chars, num) {
-    const shuffled = [...chars].sort(() => 0.5 - Math.random());
-
-    return shuffled.slice(0, num)
-}
-
-newPassArray.push(getMultipleRandom(chars, 10));
-
-function returnPassword() {
-    for (let i = 0; i < newPassArray.length; i++) {
-        for (let i = 0; i < passFill.length; i++) {
-            passFill[i].innerHTML = newPassArray.join('')
+function ohDuh() {
+    passwordsArray.forEach(password => {
+        function getMultipleRandom(chars, num) {
+            const shuffled = [...chars].sort(() => 0.5 - Math.random());
+        
+            return shuffled.slice(0, num)
         }
-    }
+        newPassArray.push(getMultipleRandom(chars, 10));
+
+        for (let i = 0; i < newPassArray.length; i++) {
+                password.textContent = newPassArray[i].join('')
+        }
+    });
 }
-
-
 
